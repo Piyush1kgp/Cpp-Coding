@@ -3,12 +3,12 @@ public:
     int getWinner(vector<int>& arr, int k) 
     {
         int n = arr.size();
-        if(k>=n)
+        if(k>=n)                                        // it will be maximum of array elements having max_count > size of array
         {   
             int maxi = *max(arr.begin(), arr.end());
             return maxi;
         }
-        else
+        else                                             // for k<n, need to traverse through array to figure out                    
         {
             int count=0, i=0;
             while(i<n)
