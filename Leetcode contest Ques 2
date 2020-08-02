@@ -1,0 +1,36 @@
+class Solution {
+public:
+    int getWinner(vector<int>& arr, int k) 
+    {
+        int n = arr.size();
+        if(k>=n)
+        {   
+            int maxi = *max(arr.begin(), arr.end());
+            return maxi;
+        }
+        else
+        {
+            int count=0, i=0;
+            while(i<n)
+            {
+                if(arr[0]>arr[1])
+                {
+                    count++;
+                    i++;
+                    
+                    if(count==k)
+                    {
+                        return arr[0];
+                    }
+                    rotate(arr.begin()+1, arr.begin()+2, arr.end());
+                }
+                else
+                {
+                    rotate(arr.begin(), arr.begin()+1, arr.end());
+                    i=0;
+                    count=0;
+                }   
+            }
+        }
+    }
+};
